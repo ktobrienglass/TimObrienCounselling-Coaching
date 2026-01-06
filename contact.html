@@ -336,35 +336,37 @@
 
     <main class="main">
       <!-- Contact form -->
-      <form
-        id="contactForm"
-        class="card form"
-        action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT"
-        method="POST"
-      >
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required autocomplete="name" />
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" required autocomplete="email" />
-        </label>
-        <label>
-          <span>Phone (optional)</span>
-          <input type="tel" name="phone" autocomplete="tel" />
-        </label>
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-        <input type="hidden" name="_subject" value="New enquiry from website" />
-        <button class="btn" type="submit">Send message</button>
-        <p class="small">
-          Prefer email?
-          <a href="mailto:obrien.tim1964@gmail.com">obrien.tim1964@gmail.com</a>
-        </p>
-      </form>
+      <form id="contactForm" class="form card" action="https://formspree.io/f/xqearklj" method="POST">
+
+
+  <label>
+    Name<br>
+    <input type="text" name="name" required>
+  </label>
+
+  <br><br>
+
+  <label>
+    Email<br>
+    <input type="email" name="email" required>
+  </label>
+
+  <br><br>
+
+  <label>
+    Message<br>
+    <textarea name="message" rows="6" required></textarea>
+  </label>
+
+  <!-- Spam protection (invisible to users) -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <br><br>
+
+  <button type="submit">Send</button>
+
+</form>
+
 
       <hr class="hr" />
 
@@ -426,34 +428,7 @@
         });
       }
 
-      // Formspree helper (optional)
-      const form = document.getElementById("contactForm");
-      if (form) {
-        form.addEventListener("submit", async (e) => {
-          if (!form.action.includes("YOUR_FORMSPREE_ENDPOINT")) return; // skip if not configured
-          e.preventDefault();
-          const data = new FormData(form);
-          try {
-            const r = await fetch(form.action, {
-              method: "POST",
-              body: data,
-              headers: { Accept: "application/json" },
-            });
-            if (r.ok) {
-              alert("Thanks — your message has been sent.");
-              form.reset();
-            } else {
-              alert(
-                "Sorry, there was a problem sending your message. Please email me directly."
-              );
-            }
-          } catch {
-            alert(
-              "Network error. Please email me directly: obrien.tim1964@gmail.com"
-            );
-          }
-        });
-      }
+      
     </script>
   </body>
 </html>
